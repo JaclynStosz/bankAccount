@@ -1,0 +1,30 @@
+/*
+The purpose of this class is to collect and store user information
+*/
+
+public Class user{
+
+public String userID;
+public String password;
+public int accounts;
+
+  public user(){
+    userID = "":
+    password = "";
+    accounts = 0;
+  }
+  
+  public user(String ID, String pass){
+    userID = ID;
+    password = pass;
+  }
+  
+  //when new account is added, num of accounts increases
+  public int addAccount(){
+    accounts++;
+    return accounts;
+  }
+  
+  
+  
+}
