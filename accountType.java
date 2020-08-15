@@ -44,4 +44,9 @@ public class accountType
         }
     }
     
+    public void addInterest(){
+        double temp = balance*interest;
+        balance = balance + temp;
+    }
+    
 }
