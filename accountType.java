@@ -1,50 +1,35 @@
+/*
+Parent class for account types
+*/
 public class accountType
 {
 
     private double balance;
-    private double wAmount;
-    private double dAmount;
+    private int minOpen;
+    private double interest;
 
     public accountType()
     {
         balance = 0;
-        wAmount = 0;
-        dAmount = 0;
+        minOpen = 0;
+        interest = 0;
     }
 
-    public accountType(double b, double w, double d)
+    public accountType(double bal, double min, double in)
     {
-        balance = b;
-        wAmount = w;
-        dAmount = d;
+        balance = bal;
+        minOpen = min;
+        interest = in;
+    }
+    
+    /*
+    public void setMinOpen(int min){
+           
     }
 
-    public double withdraw(double w)
-    {
-        if (balance >= w)
-        {
-            balance = balance - w;
-            System.out.println("Balance: " + balance);
-        }
-
-        else if (balance < w)
-        {
-            System.out.println("Insufficient Funds");
-            System.out.println("Balance: " + balance);
-        }
-
-        else
-        {
-            System.out.println("There was an error.");
-        }
-        return balance;
+    public void setInterest(double in){
+           interest = in;
     }
-
-    public double deposit(double d)
-    {
-        balance = balance + d;
-        System.out.println("Balance: " + balance);
-        return balance;
-    }
+    */
     
 }
