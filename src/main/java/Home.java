@@ -1,68 +1,81 @@
-
 import java.util.Scanner;
-public class Home
-{
-    public static Scanner scan = new Scanner(System.in);
-    
-    public static void main(String[] args)
-    {
-        boolean on = true;
 
-        while(on = true)
-        {
-            System.out.println("What would you like to do?");
-            System.out.println("1. Open a new account");
-            System.out.println("2. Access an existing account");
-            System.out.println("3. Quit");
+/*
+ * Entry point for the program
+ */
+
+public class Home {
+    
+    public static final Scanner scan = new Scanner(System.in);
+    
+    /**
+     * Main entry point for the program.
+     * @param args default args
+     */
+    public static void main(String[] args) {
+        boolean on = true;
+        while (on) {
+            System.out.println("What would you like to do?" + "\n" 
+                                + "1. Open a new account"
+                                + "2. Access an existing account"
+                                + "3. Quit");
 
             int choice = scan.nextInt();
-
-            if(choice == 1)
-            {
-                open();
-            }
-
-            else if(choice == 2)
-            {
-                access();
-            }
-
-            else if(choice == 3)
-            {
-                System.out.println(" ");
-            }
-
-            else
-            {
-                System.out.println("Please enter a valid input.");
+            
+            switch (choice) {
+                case 1:
+                    open();
+                    break;
+                
+                case 2:
+                    access();
+                    break;
+                
+                case 3:
+                    System.out.println("Goodbye");
+                    on = false;
+                    break;
+                
+                default:
+                    System.out.println("Please enter a valid input.");
+                    break;
             }
         }
-        
         scan.close();
     }
-
-    public static void open()
-    {
-        System.out.println("Which type of account would you like to create?");
-        System.out.println("1. Checking");
-        System.out.println("2. Savings");
-        System.out.println("3. Quit");
+    
+    /**
+     * When a user selects "open account".
+     */
+    public static void open() {
+        System.out.println("Which type of account would you like to create?" + "\n"
+                            + "1. Checking" + "\n"
+                            + "2. Savings" + "\n"
+                            + "3. Quit");
         int choice = scan.nextInt();
-
-        if(choice == 1)
-        {
-            AccountType checking1 = new Checking();
+        switch (choice) {
+            case 1:
+                AccountType checking1 = new Checking();
+                break;
+       
+            case 2:
+                AccountType savings1 = new Savings();
+                break;
+            
+            case 3:
+                System.out.println("Goodbye");
+                break;
+            
+            default:
+                System.out.println("Input not recognized.");
+                break;
         }
-
-        else if(choice == 2)
-        {
-            AccountType savings1 = new Savings();
-        }
-
     }
 
-    public static void access()
-    {
+    /**
+     * This method is called when a user selects "access account".
+     */
+    public static void access() {
         System.out.println("Which account would you like to access?");
         System.out.println("1. Checking");
         System.out.println("2. Savings"); 
