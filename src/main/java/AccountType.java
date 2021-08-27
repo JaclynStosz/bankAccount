@@ -3,31 +3,15 @@
 */
 
 public class AccountType {
-    private String name;
-    private double balance;
-    private int minOpen;
-    private double interest;
-
-    /**
-     * Default Constructor.
-     */
-    public AccountType() {
-        name = "";
-        balance = 0;
-        minOpen = 0;
-        interest = 0;
-    }
+    protected String type;
+    protected String name;
+    protected int accNumber;
+    protected double balance;
+    protected int minOpen;
+    protected double interest;
     
     public void setName(String n) {
         name = n;   
-    }
-    
-    public void setMinOpen(int min) {
-        minOpen = min; 
-    }
-
-    public void setInterest(double in) {
-        interest = in;
     }
     
     public void deposit(double dep) {
@@ -46,7 +30,7 @@ public class AccountType {
         }
     }
     
-    public void addInterest() {
+    public void compoundInterest() {
         double temp = balance * interest;
         balance = balance + temp;
     }

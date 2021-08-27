@@ -1,22 +1,18 @@
+import java.util.LinkedList;
+
 /*
 * The purpose of this class is to collect and store user information
 */
 
 public class User {
 
-    public String userId;
-    public String password;
-    public int accounts;
-
-    /**
-     * Default Constructor.
-     */
-    public User() {
-        userId = "";
-        password = "";
-        accounts = 0;
-    }
+    private String userId;
+    private String password;
+    private int accounts;
     
+    private static LinkedList<Checking> checkingList = new LinkedList<>();
+    private static LinkedList<Savings> savingsList = new LinkedList<>();
+
     /**
      * Constructor.
      * @param id user id
@@ -25,13 +21,38 @@ public class User {
     public User(String id, String pass) {
         userId = id;
         password = pass;
+        accounts = 0;
     }
-      
-    //when new account is added, num of accounts increases
-      
-    public int addAccount() {
-        accounts++;
+    
+    public String getUserId() {
+        return userId;
+    }
+    
+    public String getPassword() {
+        return password;
+    }
+    
+    public int getAccounts() {
         return accounts;
     }
+     
+    public void addCheckingAcc(Checking a) {
+        accounts++;
+        if (a.type.equals("checking")) {
+            checkingList.add(a);
+        }
+        else {
+            //error
+        }
+    }
  
+    public void addSavingsAcc(Savings a) {
+        accounts++;
+        if (a.type.equals("savings")) {
+            savingsList.add(a);
+        }
+        else {
+            //error
+        }
+    }
 }
