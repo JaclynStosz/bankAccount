@@ -1,0 +1,48 @@
+plugins{
+  id 'com.github.spotbugs' version '4.5.1'
+  id 'checkstyle'
+  id 'java'
+  id 'application'
+}
+
+run {
+	description = 'Console Bank System'
+	main = 'Home'
+	standardInput = System.in
+}
+
+repositories {
+  jcenter()
+  mavenCentral()
+}
+
+spotbugs{
+  toolVersion = '4.0.0-beta4'
+  ignoreFailures = true
+  showProgress = true
+  effort = 'max'
+}
+
+spotbugsMain {
+  reports {
+    xml.enabled = false
+    html.enabled = true
+  }
+}
+
+checkstyle{
+  toolVersion = '8.8'
+  //configFile file("config/checkstyle/checkstyle.xml")
+  ignoreFailures = true
+  showViolations = true
+}
+
+tasks.withType(Checkstyle) {
+  reports {
+     html.enabled = true
+     xml.enabled = false
+  }
+}
+
+//task bankConsole(){}
+//task bankUI(){}

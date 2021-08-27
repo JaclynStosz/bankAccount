@@ -2,14 +2,14 @@
 Parent class for handling common account functions
 */
 
-public class accountType
+public class AccountType
 {
-    private String name:
+    private String name;
     private double balance;
     private int minOpen;
     private double interest;
 
-    public accountType()
+    public AccountType()
     {
         name = "";
         balance = 0;
@@ -18,7 +18,7 @@ public class accountType
     }
     
     public void setName(String n){
-        name = n   
+        name = n;   
     }
     
     public void setMinOpen(int min){
